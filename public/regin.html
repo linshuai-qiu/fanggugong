@@ -1,12 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>注册页面</title>
+    <!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
+   
+    <style>
+        body {
+			background: url(./images/5.jpg);
+		}
+        .container {
+            width: 500px;
+            height: 420px;
+            margin: 200px auto;
+            box-shadow: 0 10px 10px 4px rgba(0, 0, 0, .3);
+            border: 1px solid #999999;
+            border-radius: 20px;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* .form-group{
+            width: 500px;
+            height: 420px;
+            
+        } */
+        .userInfo {
+            width: 270px;
+            margin: 5px auto;
+        }
+
+        .userInfo input {
+            font-size: 10px;
+            border: none;
+            border: 1px solid skyblue;
+            width: 270px;
+            /* height: 40px; */
+            float: left;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+        }
+
+        .userInfo p {
+            /* height: 20px; */
+            float: left;
+            font-size: 7px;
+            color: #b81313;
+        }
+
+        .userInfo strong {
+            color: red;
+            font-size: 7px;
+        }
+
+        
+        .button{
+            width: 400px;
+            height: 50px;
+        }
+        
+        .button :nth-child(1){
+            margin-left: 150px;
+            margin-right: 70px;
+        }
+    </style>
 </head>
-<body>
-    
+
+<body onload="checkuser()">
+
+    <script type="text/javascript">
+
+        // 查询数据库 账号是否存在
+        var accounts=[];
+
+        function checkuser(){
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    var arr=JSON.parse(xhr.responseText);  // json 转化为对象
+                    accounts = arr;
+                }
+            }
+            xhr.open('get','/checkuser',true);
+            xhr.send();
+        }
+
+        // 输入的时候做判断账户
+        function checkAccount(){
+            var account_exist = false;  
+            var account = document.getElementById('account').value;
+            for(var i=0; i< accounts.length;i++){
+                if(account == accounts[i].account){
+                    account_exist = true
+                } 
+            }
+            if(account_exist){
+                document.getElementById('account_msg').innerHTML='用户已被占用';
+            }
+            else {
+                document.getElementById('account_msg').innerHTML='';
+            }
+
+        }
+
+
+        //验证用户名
+        function checkSyntax(id, infoId) {
+            var accountReg = /^[a-zA-Z0-9_-]{4,10}$/;
+            var txtAccount = document.getElementById(id).value;
+            if (!accountReg.test(txtAccount)) {
+                setInfo(infoId, '用户名可包含大写、小写英文字母，数字');
+                return false;
+            }
+            return true;
+        }
+        // 设置提示信息
+        function setInfo(id, info) {
+            document.getElementById(id).innerText = info;
+        }
+        //验证密码
+        function checkPassword(id, infoId) {
+            var passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
+            var txtPassword = document.getElementById(id).value;
+            if (!passwordReg.test(txtPassword)) {
+                setInfo(infoId, '密码必须包含大写、小写英文字母');
+                return false;
+            }
+            return true;
+        }
+        //重复密码
+        function checkRepassword(pwd1, pwd2, infoId) {
+            var txtPwd1 = document.getElementById(pwd1).value;
+            var txtPwd2 = document.getElementById(pwd2).value;
+            if (txtPwd1 != txtPwd2) {
+                setInfo(infoId, "与密码不一致");
+                return false;
+            }
+        }
+        //电子邮箱
+        function checkEmail(id, infoId) {
+            var emailReg = /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+            var txtEmail = document.getElementById(id).value;
+            if (!emailReg.test(txtEmail)) {
+                setInfo(infoId, '请输入正确邮箱地址');
+                return false;
+            }
+            return true;
+        }
+        // 判断邮箱是否被占用
+        function check_email(){
+            var email_exist = false;  
+            var email = document.getElementById('email').value;
+            for(var i=0; i< accounts.length;i++){
+                if(email == accounts[i].email){
+                    email_exist = true
+                } 
+            }
+            if(email_exist){
+                document.getElementById('email_msg').innerHTML='邮箱已存在';
+            }
+            else {
+                document.getElementById('email_msg').innerHTML='';
+            }
+        }
+        //电话号码
+        function checkPhone(id, infoId) {
+            var phoneReg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/;
+            var txtPhone = document.getElementById(id).value;
+            if (!phoneReg.test(txtPhone)) {
+                setInfo(infoId, '请输入正确的手机号');
+                return false;
+            }
+            return true;
+        }
+        // 判断手机号
+        function checkPhoneNum(){
+            var phone_exist = false;  
+            var phone = document.getElementById('phone').value;
+            for(var i=0; i< accounts.length;i++){
+                if(phone == accounts[i].phone){
+                    phone_exist = true
+                } 
+            }
+            if(phone_exist){
+                document.getElementById('phone_msg').innerHTML='手机号已存在';
+            }
+            else {
+                document.getElementById('phone_msg').innerHTML='';
+            }
+
+        }
+
+        //清除信息
+        function clearInfo(id) {
+            document.getElementById(id).innerText = " ";
+        }
+
+        // 刷新页面 
+        function refresh(){
+            location.reload();
+        }
+    </script>
+
+
+    <div class="container">
+        <h2>注册</h2>
+        <form class="form-group" action="/login.html" method="get" >
+            <div class="userInfo">
+                <input type="text"  name="account" id="account"  onblur="checkSyntax('account','accountInfo');checkAccount()" onfocus="clearInfo('accountInfo')"  placeholder="用户名可包含大写、小写英文字母，数字" />
+                <p>
+                    <span id="accountInfo"></span>
+                    <span id="account_msg"></span>
+                </p>
+            </div>
+            <div class="userInfo">
+                <input type="password"  name="password" id="password" onblur="checkPassword('password', 'passwordInfo')" onfocus="clearInfo('passwordInfo')" placeholder="密码必须包含大写、小写英文字母，数字"/>
+                <p><span id="passwordInfo"></span></p>
+            </div>
+            <div class="userInfo">
+                <input type="password" name="repassword" id="repassword" onblur="checkRepassword('password', 'repassword', 'repasswordInfo')" onfocus="clearInfo('repasswordInfo')" placeholder="请再次输入密码"/>
+                <p><span id="repasswordInfo"></span></p>
+            </div>
+            <div class="userInfo">
+                <input type="text" name="email" id="email"  onblur="checkEmail('email', 'emailInfo');check_email()" onfocus="clearInfo('emailInfo')" placeholder="请输入邮箱"/>
+                <p>
+                    <span id="emailInfo"></span>
+                    <span id="email_msg"></span>
+                </p>
+            </div>
+            <div class="userInfo">
+                <input type="text" name="phone" id="phone" onblur="checkPhone('phone', 'phoneInfo');checkPhoneNum()" onfocus="clearInfo('phoneInfo')" placeholder="请输入手机号"/>
+                <p>
+                    <span id="phoneInfo"></span>
+                    <span id="phone_msg"></span>
+                </p>
+            </div>
+
+            <div class="button">
+                <input type="submit" class="btn btn-info mt-2" value="注册"/>
+                <input type="reset"  class="btn btn-info mt-2" onclick='refresh()' value="重置"/>
+            </div>
+                
+        </form>
+
+
+    </div>
+
 </body>
+
 </html>

@@ -1,12 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>走进故宫</title>
-</head>
-<body>
-    
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>走进故宫</title>
+   
+   </head>
+   <body>
+      <div>
+         <!-- 背景1 -->
+         <div class="beijing carousel" data-ride="carousel" id="l1">
+            <div class="bj-daohang navbar navbar-expand-md">
+               <!-- 导航左边 -->
+               <div class="navbar-brand">
+                  <a href=""><img src="./images/dh-gugong.png" width="116px" height="35px"alt=""></a>
+               </div>
+               <button class="bj-anniu navbar-toggler" data-toggle="collapse" data-target="#bar1">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <!-- 导航右边 -->
+               <div class="dh-youbian collapse navbar-collapse" id="bar1">
+                  <ul class="navbar-nav">
+                     <li class="nav-item"><a href="./index.html" id="aa">首页</a></li>
+                     <li class="nav-item"><a href="./导览.html" class="">导览</a></li>
+                     <li class="nav-item"><a href="./goupiao.html" class="">购票</a></li>
+                     <li class="nav-item"><a href="./发现.html" class="">探索</a></li>
+                     <li><a href="./关于.html" class="">关于我们</a></li>
+                     <!-- 下拉列表 -->
+                     <li class="nav-item dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="./images/dh-user.png" alt=""></a>
+                        <ul class="dropdown-menu">
+                           <li><a href="http://localhost:8080/login.html">登录</a></li>
+								  <li><a href="http://localhost:8080/regin.html">注册</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <!-- 轮播图 -->
+            <div class="carousel data-ride="carousel slide id="id-zhishiqi">
+               <div class="carousel-inner">
+                  <!-- 轮播背景图部分 -->
+                  <div class="bj-lbt carousel-fade">
+                     <div class="carousel-item active" data-interval="5000">
+                        <img src="./images/5.jpg" class="d-block w-100  animated pulse">
+                     </div>
+                     <div class="carousel-item" data-interval="5000">
+                        <img src="./images/4.jpg" class="d-block w-100 animated pulse">
+                     </div>
+                     <div class="carousel-item" data-interval="5000">
+                        <img src="./images/3.jpg" class="d-block w-100 animated pulse">
+                     </div>
+                  </div>
+                  <!-- 指示器部分 -->
+                  <ul class="carousel-indicators">
+                     <li data-slide-to="0" data-target="#id-zhishiqi"
+                        class="active"></li>
+                     <li data-slide-to="1" data-target="#id-zhishiqi"></li>
+                     <li data-slide-to="2" data-target="#id-zhishiqi"></li>
+                  </ul>
+               </div>
+            </div>
+            <!-- 轮播图下公告部分 -->
+            <div class="gonggao">
+               <h4>关于对未成年人试行免费开放的公告</h4>
+               <p>2021年12月3日20时起，可通过故宫博物院售票网站 <a href="./goupiao.html"></a> 、“故宫博物院观众服务”微信公众号预约2021年12月10日以后的未成年人免费门票（含珍宝馆、钟表馆）。</p>
+            </div>
+            <!-- 中部分 -->
+            <div class="zhongbu">
+               <div class="zb-shang">
+                 <div class="zb-shang-1">
+                     <div class="zb-shang-1-cangpin">
+                        <img src="./images/zjt-zuokuohao.png" style="width: 20px; height: 30px;" alt="">
+                        <h3>故宫</h3>
+                        <img src="./images/zb-shang-1-dian.png" class="zb-shang-1-dian" style="width: 15x; height: 10px;" alt="">
+                        <h3>藏品</h3>
+                        <img src="./images/zjt-youkuohao.png" style="width: 20px; height: 30px;" alt="">
+                     </div>
+                     <div class="zb-sahng-1-shu"></div>
+                     <!-- 件/套 -->
+                     <div class="zb-sahng-1-jiantao">
+                        <span class="zb-sahng-1-num">1,863,404</span>
+                        <p class="zb-sahng-1-beijing">
+                           <img src="./images/zb-shang-1-jiantao.png"  alt="">
+                        </p>
+                     </div>
+                     <div class="zb-shang-1-anniu1">
+                        <a href="./藏品.html">藏品总目</a>
+                     </div>
+                     <div class="zb-shang-1-anniu2">
+                        <a href="">数字文物库</a>
+                     </div>
+                 </div>
+                 <div class="zb-shang-2"></div>
+                 <div class="zb-shang-3"></div>
+                 <div class="zb-shang-4"></div>  
+               </div>
+               <div class="zb-xia">
+                  <div class="zb-xia-lan">
+                        <div class="s1">
+                           <img src="./images/zjt-zuokuohao.png" style="width: 20px; height: 30px;" alt="">
+                           <h4 style="font-weight: 700;">博物馆公告</h4>
+                           <img src="./images/zjt-youkuohao.png" style="width: 20px; height: 30px;" alt="">
+                        </div>
+                        <ul>
+                           <li>
+                              <a href="./博物馆活动/故宫博物院获2020 AVICOM国际视听多媒体艺术节“数字交互装置”单元金奖.html"  target="_blank">
+                                 故宫博物院获2020 AVICOM国际视听多媒体艺术节“数字交互装置”单元金奖
+                              </a>
+                           </li>
+                           <li>
+                              <a href="./博物馆活动/故宫博物院《折出故宫——二十四节气》折纸盒子正式发布.html"  target="_blank">
+                                 故宫博物院《折出故宫——二十四节气》折纸盒子正式发布
+                              </a>
+                           </li>
+                           <li>
+                              <a href="./博物馆活动/考古视野下的文明交流与互鉴.html"  target="_blank">
+                                 考古视野下的文明交流与互鉴
+                              </a>
+                           </li>
+                           <li>
+                              <a href="./博物馆活动/“中巴文化交流史与文物保护线上论坛”顺利召开.html"  target="_blank">
+                                 中巴文化交流史与文物保护线上论坛 顺利召开
+                              </a>
+                           </li>
+                        </ul>
+                  </div>
+                  <div class="zb-xia-hong">
+                        <div class="s2">
+                           <img src="./images/zjt-zuokuohao.png" style="width: 20px; height: 30px; display: inline-block;" alt="">
+                           <h4 style="font-weight: 700;">博物馆活动</h4>
+                           <img src="./images/zjt-youkuohao.png" style="width: 20px; height: 30px; display: inline-block;" alt="">
+                        </div>
+                        <ul>
+                           <li>
+                              <!--  target="_blank" 点击后新建页面打开 -->
+                              <a href="./学术研究/故宫博物院举办“第一届中国古书画鉴定与鉴藏学术研讨会”.html"  target="_blank">
+                                 故宫博物院举办“第一届中国古书画鉴定与鉴藏学术研讨会”
+                              </a>
+                           </li>
+                           <li>
+                              <a href="./学术研究/故宫博物院全面排比淳化阁帖记述.html"  target="_blank">
+                                 故宫博物院全面排比淳化阁帖记述
+                              </a>
+                           </li>
+                           <li>
+                              <a href="./学术研究/故宫博物院线上召开“纪念冯先铭先生诞辰100周年学术座谈会”.html"  target="_blank">
+                                 故宫博物院线上召开“纪念冯先铭先生诞辰100周年学术座谈会”
+                              </a>
+                           </li>
+                           <li>
+                              <a href="./学术研究/故宫博物院荣获2020年度国家科学技术进步奖一等奖.html"  target="_blank">
+                                 故宫博物院荣获2020年度国家科学技术进步奖一等奖
+                              </a>
+                           </li>
+                        </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- 背景2 -->
+         <div class="beijing2">
+            <div class="dibu">
+               <div class="db-shang">
+                  <div class="db-shang-1 w-20"> </div>
+                  <div class="db-shang-2 w-20"> </div>
+                  <div class="db-shang-3 w-20"> </div>
+                  <div class="db-shang-4 w-20"> </div>
+                  <div class="db-shang-5 w-20"> </div>
+                </div>
+                <div class="db-xia">
+                   <div class="db-xia-hei">
+                     <div class="db-xia-hei-anniu">
+                        <div>
+                           <img src="./images/anniu-1.png" alt="" class="anniu1">
+                           <h5>微博</h5>
+                        </div>
+                        <div>
+                           <img src="./images/anniu-2.png" alt="" class="anniu2">
+                           <h5>微信</h5>
+                        </div>
+                        <div>
+                           <img src="./images/anniu-3.png" alt="" class="anniu3">
+                           <h5>小程序</h5>
+                        </div>
+                        <div>
+                           <img src="./images/anniu-4.png" alt="" class="anniu4">
+                           <h5>学习强国号</h5>
+                        </div>
+                        <div>
+                           <img src="./images/anniu-5.png" alt="" class="anniu5">
+                           <h5>视频号</h5>
+                        </div>
+                     </div>
+                     <div class="db-xia-hei-fangwen">
+                        网站访问量
+                        <span>1</span>
+                        <span>5</span>
+                        <span>5</span>
+                        <span>4</span>
+                        <span>9</span>
+                        <span>2</span>
+                        <span>8</span>
+                        <span>8</span>
+                        <span>8</span>
+                     </div>
+                     <div class="db-xia-hei-qita">
+                        <span>网站地图</span>
+                        <span>相关链接</span>
+                        <span>影像授权</span>
+                        <span>隐私政策</span>
+                        <span>版权声明</span>
+                        <span>留言板</span>
+                        <span>联系我们</span>
+                        <span>关于我们</span> 
+                     </div>
+                     <div class="db-xia-hei-lianxi">
+                        <span>网站维护：故宫博物院数字与信息部</span>
+                        <span>联系方式：gugong@dpm.org.cn</span>
+                     </div>
+                     <div class="db-xia-hei-jianshe">
+                        <span>©2001-现在 故宫博物院</span>
+                        <span>网站建设：软件204</span>
+                     </div>
+                   </div>
+               </div>
+            </div>
+         </div>
+         <!-- 回到顶部 -->
+      </div>
+      <div class="dingbu" id="dingbu">
+         <a href="#aa">顶部</a>
+      </div>
+      <script>
+         var dingbu = document.getElementById('dingbu')
+         onscroll = function(){ // onscroll 鼠标滑动
+            // scrollTop 垂直距离
+            var top = document.body.scrollTop || document.documentElement.scrollTop 
+            if(top >= 1000){
+               dingbu.style.opacity = 1 // opacity 透明度
+            }else {
+               dingbu.style.opacity = 0
+            }
+         }
+      </script>
+   </body>
 </html>

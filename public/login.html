@@ -1,12 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>登录页面</title>
+   
+    <style>
+         body {
+			background: url(./images/5.jpg);
+		}
+        .container {
+            width: 400px;
+            height: 300px;
+            margin: 200px auto;
+            box-shadow: 0 10px 10px 4px rgba(0, 0, 0, .4);
+           
+            border: 1px solid #999999;
+            border-radius: 10px;
+        }
+
+        .userInfo {
+            width: 270px;
+            margin: 5px auto;
+        }
+
+        .userInfo input {
+            font-size: 10px;
+            border: none;
+            border: 1px solid skyblue;
+            width: 270px;
+            /* height: 40px; */
+            float: left;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+        }
+
+        .userInfo p {
+            /* height: 20px; */
+            float: left;
+            font-size: 7px;
+            color: #b81313;
+        }
+
+        .button{
+            margin-top: 50px;
+            margin-left: 150px;
+        }
+    </style>
 </head>
-<body>
-    
+
+<body >
+    <!-- <script>
+    function toLogin(){
+            var account = document.getElementById('account').value;
+            var password = document.getElementById('password').value;
+
+            console.log(account,password);
+
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function (){
+                if(xhr.readyState == 4 & xhr.status == 200){
+                    // let result = JSON.parse(xhr.responseText);
+                    let result = xhr.responseText;
+                    console.log(result);
+                    if(result == '1'){
+                        location.href='http://localhost:8080/goupiao.html'
+                    }else{
+                        alert('密码错误')
+                    }
+                }
+            }
+            // xhr.open('get','/login?account'+account+'&password'+password,true)
+            xhr.open('get','/login',true)
+            xhr.send();
+        }    
+    </script> -->
+
+    <div class="container">
+        <h2 class="text-center">登录页面</h2>
+        <form class="form-group mx-auto " action="./goupiao.html" method="get" style="width: 400px; flex-wrap: nowrap;" >
+
+            <div class="userInfo">
+                账号:<input type="text"  name="account" id="account"   placeholder="输入账号" />
+                <p><span id="accountInfo"></span></p>
+            </div>
+            <div class="userInfo">
+                密码:<input type="password"  name="password" id="password"  placeholder="输入密码"/>
+                <p><span id="passwordInfo"></span></p>
+            </div>
+            
+            <div class="button">
+                <input type="submit" class="btn btn-info mt-2"  value="登录">
+            </div>
+        </form>
+    </div>
+
 </body>
+
 </html>
